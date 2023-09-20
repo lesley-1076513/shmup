@@ -8,7 +8,7 @@ SCREEN_HEIGHT = 768
 # Kleuren worden aangeven met een tuple van 3 getallen - rood, groen, blauw - tussen 0 en 255.
 BACKGROUND_COLOR = (0, 0, 0)
 pygame.display.set_caption("Werkplaats 1: PyGame")
-
+# dddaudhasidnusa
 
 clock = pygame.time.Clock()
 canvas = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
