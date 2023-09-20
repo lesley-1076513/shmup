@@ -1,6 +1,6 @@
-import pygame
+import pg
 
-pygame.init()
+pg.init()
 GAME_SPEED = 60
 LOGO_SPEED = 3
 SCREEN_WIDTH = 1024
@@ -8,11 +8,11 @@ SCREEN_HEIGHT = 768
 # Kleuren worden aangeven met een tuple van 3 getallen - rood, groen, blauw - tussen 0 en 255.
 # 0, 0, 0 betekend geen kleurm, dus zwart.
 BACKGROUND_COLOR = (0, 0, 0)
-pygame.display.set_caption("Werkplaats 1: PyGame")
+pg.display.set_caption("Werkplaats 1: PyGame")
 
 
-clock = pygame.time.Clock()
-canvas = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+clock = pg.time.Clock()
+canvas = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 
 def handle_events():
@@ -20,12 +20,12 @@ def handle_events():
     # De lijst met "events" is een lijst met alle gebeurtenissen die
     # plaatsvonden sinds de vorige loop. Hier komen ook de toetsaanslagen
     # in te staan. Let op! De .get() methode haalt de lijst leeg.
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
             halting = True
             break
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_ESCAPE or event.key == pygame.K_SPACE:
+        elif event.type == pg.KEYDOWN:
+            if event.key == pg.K_ESCAPE or event.key == pg.K_SPACE:
                 halting = True
                 break
     return halting
@@ -51,7 +51,7 @@ def get_new_speed_directions(
     return [speed_x, speed_y]
 
 
-logo = pygame.image.load("images/ra_logo.png").convert_alpha()
+logo = pg.image.load("images/ra_logo.png").convert_alpha()
 logo_rect = logo.get_rect()
 logo_speed = [LOGO_SPEED, LOGO_SPEED]
 
@@ -70,7 +70,7 @@ while not quit_program:
     # https://www.pygame.org/docs/ref/rect.html
     logo_rect.move_ip(logo_speed)
     canvas.blit(logo, logo_rect)
-    pygame.display.flip()
+    pg.display.flip()
     clock.tick(GAME_SPEED)
 
 print("Game over!")
