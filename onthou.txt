@@ -1,12 +1,15 @@
 begin:
 git clone git@github.com:Rac-Software-Development/wp1-2023-pygame-team-peed1a.git
-maak branch met git checkout -b branchnaamhier
+maak branch met: git checkout -b branchnaamhier
 
 gebruiken:
 git status
 git add .
 git commit -m "bericht"
 git push
+
+de 1e keer is dit nodig:
+git push -u origin branchnaamhier
 
 extra:
 git diff / git log -p
