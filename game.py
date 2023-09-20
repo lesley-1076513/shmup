@@ -6,7 +6,6 @@ LOGO_SPEED = 3
 SCREEN_WIDTH = 1024
 SCREEN_HEIGHT = 768
 # Kleuren worden aangeven met een tuple van 3 getallen - rood, groen, blauw - tussen 0 en 255.
-# 0, 0, 0 betekend geen kleurm, dus zwart.
 BACKGROUND_COLOR = (0, 0, 0)
 pg.display.set_caption("Werkplaats 1: PyGame")
 
