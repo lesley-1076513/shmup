@@ -1,3 +1,3 @@
 @echo off
-py src/SpeedGame.py
+py src/main.py
 pause

@@ -2,7 +2,7 @@
 
 Spel opstarten met batchfile of:
 ```
-py src/SpeedGame.py
+py src/main.py
 ```
 
 Geluidseffecten gegenereerd met:
