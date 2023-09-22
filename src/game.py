@@ -1,20 +1,25 @@
 from enum import Enum
 import pygame as pg
 
-SCREEN_WIDTH = 1024
-SCREEN_HEIGHT = 768
-BG_COLOR = (100, 100, 100)
-FPS_RATE = 60
-
 class GameState(Enum):
     TITLE = 1
-    MENU = 2
-    GAME = 3
-    
+    GAME = 2
+
+class Game():
+    def __init__(self):
+        self.title = "Speed Game"
+        self.state = GameState.TITLE
+        self.fps_rate = 60
+        self.screen_width = 1024
+        self.screen_height = 768
+        self.bg1 = (100, 100, 100)
+        self.bg2 = (0, 0, 0)
+
 pg.init()
-pg.display.set_caption("Speed Game")
 clock = pg.time.Clock()
-surface = pg.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+game = Game()
+pg.display.set_caption(game.title)
+surface = pg.display.set_mode((game.screen_width, game.screen_height))
 
 def run():
     running = True
@@ -24,11 +29,21 @@ def run():
                 case pg.QUIT:
                     running = False
                 case pg.KEYDOWN:
-                    match event.key:
-                        case pg.K_ESCAPE:
-                            running = False
+                    if event.key == pg.K_ESCAPE:
+                        running = False
+                    if event.key == pg.K_RETURN:
+                        match game.state:
+                            case GameState.TITLE:
+                                game.state = GameState.GAME
+                            case GameState.GAME:
+                                game.state = GameState.TITLE
 
-        surface.fill(BG_COLOR)
+        match game.state:
+            case GameState.TITLE:
+                surface.fill(game.bg1)
+            case GameState.GAME:
+                surface.fill(game.bg2)
+
         pg.display.flip()
-        clock.tick(FPS_RATE)
+        clock.tick(game.fps_rate)
         
