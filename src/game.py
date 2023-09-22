@@ -1,8 +1,9 @@
 from enum import Enum
+from state import GameState
 import pygame as pg
 import window
 import draw
-from state import GameState
+import input
 
 class Game():
     def __init__(self):
@@ -23,7 +24,9 @@ font = pg.font.Font("gfx/Mario-Kart-DS.ttf", game.font_size)
 def run():
     while w.running:
         if game.debug:
-            pg.display.set_caption(f"Speed Game - {str(int(clock.get_fps()))} fps")
+            pg.display.set_caption(f"{w.title} - {str(int(clock.get_fps()))} fps")
+
+        input.poll_keys()
 
         for event in pg.event.get():
             match event.type:
@@ -32,21 +35,7 @@ def run():
                 case pg.VIDEORESIZE:
                     window.scale_window(w)
                 case pg.KEYDOWN:
-                    if event.key == pg.K_ESCAPE:
-                        w.running = False
-                    if event.key == pg.K_RETURN and event.mod & pg.KMOD_ALT:
-                        window.toggle_fullscreen(w)
-                    if event.key == pg.K_RETURN and not event.mod & pg.KMOD_ALT:
-                        match game.state:
-                            case GameState.TITLE:
-                                game.state = GameState.GAME
-                            case GameState.GAME:
-                                game.state = GameState.END
-                            case GameState.END:
-                                game.state = GameState.TITLE
-                    if event.key == pg.K_SPACE:
-                        coin_sfx = pg.mixer.Sound("sfx/coin1.wav")
-                        coin_sfx.play()
+                    input.handle_keyevents(event, w, game)
 
         draw.draw(w, game, font)
         clock.tick(game.fps)
