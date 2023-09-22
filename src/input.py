@@ -4,6 +4,7 @@ import window
 
 def poll_keys():
     keys = pg.key.get_pressed()
+    mods = pg.key.get_mods()
     # if keys[pg.K_SPACE]:
 
 def handle_keyevents(event, w, game):
