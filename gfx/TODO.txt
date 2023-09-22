@@ -1,0 +1,3 @@
+We kunnen ingebouwde vormen van pygame.draw op het scherm tekenen en/of afbeeldingen.
+
+Hangt een deel van de beoordeling af van graphics of maakt het niet uit?

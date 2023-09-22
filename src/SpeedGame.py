@@ -24,3 +24,4 @@ while running:
     surface.fill(BG_COLOR)
     pg.display.flip()
     clock.tick(FPS_RATE)
+    
