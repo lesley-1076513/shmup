@@ -15,6 +15,7 @@ class Window():
         self.screen_height = self.render_height * self.render_scale
         self.flags = pg.RESIZABLE
         self.fullscreen = False
+        self.running = True
         self.render = pg.Surface([self.render_width, self.render_height])
         if self.start_fullscreen:
             toggle_fullscreen(self)

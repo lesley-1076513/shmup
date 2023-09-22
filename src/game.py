@@ -1,23 +1,17 @@
 from enum import Enum
 import pygame as pg
 import window
-
-class GameState(Enum):
-    TITLE = 1
-    GAME = 2
-    END = 3
+import draw
+from state import GameState
 
 class Game():
     def __init__(self):
-        self.running = True
+        self.debug = True
         self.state = GameState.TITLE
         self.fps = 60
         self.font_size = 16
-        self.debug = True
-        self.bg_color = (150, 150, 150)
-        self.title_bg = (100, 100, 100)
-        self.game_bg = (50, 50, 50)
-        self.end_bg = (255, 0, 0)
+        self.render_col = (150, 150, 150)
+        self.screen_col = (100, 100, 100)
 
 pg.init()
 w = window.Window()
@@ -27,16 +21,19 @@ game = Game()
 font = pg.font.Font("gfx/Mario-Kart-DS.ttf", game.font_size)
 
 def run():
-    while game.running:
+    while w.running:
+        if game.debug:
+            pg.display.set_caption(f"Speed Game - {str(int(clock.get_fps()))} fps")
+
         for event in pg.event.get():
             match event.type:
                 case pg.QUIT:
-                    game.running = False
+                    w.running = False
                 case pg.VIDEORESIZE:
                     window.scale_window(w)
                 case pg.KEYDOWN:
                     if event.key == pg.K_ESCAPE:
-                        game.running = False
+                        w.running = False
                     if event.key == pg.K_RETURN and event.mod & pg.KMOD_ALT:
                         window.toggle_fullscreen(w)
                     if event.key == pg.K_RETURN and not event.mod & pg.KMOD_ALT:
@@ -51,23 +48,6 @@ def run():
                         coin_sfx = pg.mixer.Sound("sfx/coin1.wav")
                         coin_sfx.play()
 
-        w.screen.fill((game.bg_color))
-        match game.state:
-            case GameState.TITLE:
-                w.render.fill(game.title_bg)
-                text = font.render("titlescreen", False, "yellow")
-            case GameState.GAME:
-                w.render.fill(game.game_bg)
-                text = font.render("gamescreen", False, "yellow")
-            case GameState.END:
-                w.render.fill(game.end_bg)
-                text = font.render("endscreen", False, "yellow")
-            
-        if game.debug:
-            pg.display.set_caption(f"Speed Game - {str(int(clock.get_fps()))} fps")
-
-        w.render.blit(text, (0, 0))
-        w.screen.blit(pg.transform.scale(w.render, (w.screen_width, w.screen_height)), ((w.screen.get_width() - w.screen_width) // 2, (w.screen.get_height() - w.screen_height) // 2))
-        pg.display.flip()
+        draw.draw(w, game, font)
         clock.tick(game.fps)
     pg.quit()
