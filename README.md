@@ -1,6 +1,6 @@
 # TEAM $PEED
 
-Spel opstarten met:
+Spel opstarten met batchfile of:
 ```
 py src/SpeedGame.py
 ```
