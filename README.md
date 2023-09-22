@@ -1,4 +1,4 @@
-# TEAM SPEED
+# TEAM $PEED
 
 Spel opstarten met:
 ```
