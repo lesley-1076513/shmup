@@ -2,21 +2,19 @@ begin:
 git clone git@github.com:Rac-Software-Development/wp1-2023-pygame-team-peed1a.git
 
 gebruiken:
-git status
+git status / git diff / git log -p
 git add .
 git commit -m "bericht"
 git push
 
-branch:
+branches:
 maak lokaal branch met: git checkout -b branchnaamhier
 maak remote branch met: git push -u origin branchnaamhier
 sync met main: git pull origin main
 
-extra:
-git diff / git log -p
+info ontbreekt over mergen, maar die les komt nog...
 
-powershell commands:
-
+powershell:
 ls - list files
 cd - change dir
 mkdir - make dir
