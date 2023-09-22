@@ -1,6 +1,5 @@
 begin:
 git clone git@github.com:Rac-Software-Development/wp1-2023-pygame-team-peed1a.git
-maak branch met: git checkout -b branchnaamhier
 
 gebruiken:
 git status
@@ -8,8 +7,10 @@ git add .
 git commit -m "bericht"
 git push
 
-de 1e keer is dit nodig:
-git push -u origin branchnaamhier
+branch:
+maak lokaal branch met: git checkout -b branchnaamhier
+maak remote branch met: git push -u origin branchnaamhier
+sync met main: git pull origin main
 
 extra:
 git diff / git log -p
@@ -19,5 +20,5 @@ powershell commands:
 ls - list files
 cd - change dir
 mkdir - make dir
-ni - new item
+ni - new item (file)
 explorer . - deze map openen met de punt
