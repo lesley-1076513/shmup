@@ -5,7 +5,6 @@ class Window():
     def __init__(self):
         self.title = "Speed Game"
         self.start_fullscreen = True
-        self.font_size = 16
         self.aspect_x = 16
         self.aspect_y = 9
         self.aspect_scale = 20

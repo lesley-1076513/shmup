@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             // "program": "${file}",
-            "program": "src/SpeedGame.py",
+            "program": "src/main.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }

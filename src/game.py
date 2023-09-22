@@ -12,18 +12,19 @@ class Game():
         self.running = True
         self.state = GameState.TITLE
         self.fps = 60
+        self.font_size = 16
         self.debug = True
         self.bg_color = (150, 150, 150)
         self.title_bg = (100, 100, 100)
-        self.game_bg = (0, 0, 0)
+        self.game_bg = (50, 50, 50)
         self.end_bg = (255, 0, 0)
 
 pg.init()
 w = window.Window()
 clock = pg.time.Clock()
-# font = pg.font.Font("gfx/alagard.ttf", w.font_size)
-font = pg.font.Font("gfx/Mario-Kart-DS.ttf", w.font_size)
 game = Game()
+# font = pg.font.Font("gfx/alagard.ttf", game.font_size)
+font = pg.font.Font("gfx/Mario-Kart-DS.ttf", game.font_size)
 
 def run():
     while game.running:
