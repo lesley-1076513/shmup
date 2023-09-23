@@ -1,9 +1,9 @@
 # TEAM $PEED
 
-Spel opstarten met batchfile of:
-```
-py src/main.py
-```
+Spel opstarten zonder console met [run.pyw](run.pyw) of met console:
+Windows | Anders
+|-|-|
+py src/main.py | python3 src/main.py
 
 Geluidseffecten gegenereerd met:
 
