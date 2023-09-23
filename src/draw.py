@@ -18,5 +18,12 @@ def draw(w, game, font):
     w.screen.blit(pg.transform.scale(w.render, (w.screen_width, w.screen_height)), ((w.screen.get_width() - w.screen_width) // 2, (w.screen.get_height() - w.screen_height) // 2))
     pg.display.flip()
 
+def pause(w, font):
+    pause_text = "paused"
+    text = font.render(pause_text, False, "yellow")
+    w.render.blit(text, (0, 0))
+    w.screen.blit(pg.transform.scale(w.render, (w.screen_width, w.screen_height)), ((w.screen.get_width() - w.screen_width) // 2, (w.screen.get_height() - w.screen_height) // 2))
+    pg.display.flip()
+
 def center(w, game, text):
     return ((w.render_width - len(text) * game.font_size // 2) // 2, (w.render_height - game.font_size // 2) // 2)

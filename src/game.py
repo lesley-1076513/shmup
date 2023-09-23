@@ -7,6 +7,7 @@ import input
 
 class Game():
     def __init__(self):
+        self.paused = False
         self.debug = True
         self.state = GameState.TITLE
         self.fps = 60
@@ -37,6 +38,9 @@ def run():
                 case pg.KEYDOWN:
                     input.handle_keyevents(event, w, game)
 
-        draw.draw(w, game, font)
+        if game.paused:
+            draw.pause(w, font)
+        else:
+            draw.draw(w, game, font)
         clock.tick(game.fps)
     pg.quit()
