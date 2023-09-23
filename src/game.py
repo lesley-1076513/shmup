@@ -19,8 +19,7 @@ pg.init()
 w = window.Window()
 clock = pg.time.Clock()
 game = Game()
-# font = pg.font.Font("gfx/alagard.ttf", game.font_size)
-font = pg.font.Font("gfx/Mario-Kart-DS.ttf", game.font_size)
+font = pg.font.Font("gfx/alagard.ttf", game.font_size)
 
 def run():
     while w.running:
@@ -39,7 +38,7 @@ def run():
                     input.handle_keyevents(event, w, game)
 
         if game.paused:
-            draw.pause(w, font)
+            draw.pause(w, game, font)
         else:
             draw.draw(w, game, font)
         clock.tick(game.fps)
