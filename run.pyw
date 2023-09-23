@@ -1,3 +1,12 @@
 import subprocess
+import os
 
-subprocess.call(["pythonw", "src/main.py"])
+entry_point = "src/main.py"
+
+match os.name:
+    case "nt":
+        python = "pythonw"
+    case _:
+        python = "python3"
+
+subprocess.call([python, entry_point])
