@@ -1,7 +1,10 @@
 # TEAM $PEED
 
+Eerst pygame installeren met de instructies hier:
+https://www.pygame.org/wiki/GettingStarted
+
 Spel opstarten zonder console met [run.pyw](run.pyw) of met console:
-Windows | Anders
+Windows | Andere
 |-|-|
 py src/main.py | python3 src/main.py
 
