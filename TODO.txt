@@ -1,0 +1,1 @@
+1. check run.pyw op macos, test het met pythonw command

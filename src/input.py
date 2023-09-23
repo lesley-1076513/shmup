@@ -31,3 +31,4 @@ def handle_keyevents(event, w, game):
     if event.key == pg.K_SPACE:
         coin_sfx = pg.mixer.Sound(f"sfx/explosion{random.randint(1,3)}.wav")
         coin_sfx.play()
+        
