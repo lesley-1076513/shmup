@@ -7,17 +7,17 @@ def draw(w, game, font):
     
     match game.state:
         case GameState.TITLE:
-            primary_text = "hiscore: 0"
-            secondary_text = "start (enter)"
-            tertiary_text = "quit (escape)"
+            primary_text = "Hiscore: 0"
+            secondary_text = "Start (enter)"
+            tertiary_text = "Quit (escape)"
         case GameState.GAME:
-            primary_text = "lives"
-            secondary_text = "score"
-            tertiary_text = "time"
+            primary_text = "Lives: 0"
+            secondary_text = "Score: 0"
+            tertiary_text = "Time: 0"
         case GameState.END:
-            primary_text = "game over"
-            secondary_text = "score"
-            tertiary_text = "time"
+            primary_text = "Game Over"
+            secondary_text = "Score: 0"
+            tertiary_text = "Time: 0"
 
     text1 = font.render(primary_text, False, "yellow")
     text2 = font.render(secondary_text, False, "yellow")
@@ -37,7 +37,7 @@ def draw(w, game, font):
     pg.display.flip()
 
 def pause(w, game, font):
-    pause_text = "paused"
+    pause_text = "Paused"
     text = font.render(pause_text, False, "yellow")
     w.render.blit(text, center(w, game, pause_text))
     w.screen.blit(pg.transform.scale(w.render, (w.screen_width, w.screen_height)), ((w.screen.get_width() - w.screen_width) // 2, (w.screen.get_height() - w.screen_height) // 2))

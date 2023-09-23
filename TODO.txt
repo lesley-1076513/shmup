@@ -2,7 +2,7 @@ maak 1.0 git tag op laatste commit als we klaar zijn
 check run.pyw op macos, test het met pythonw command, gebruik sys.platform als nodig is
 verbeter pause functie voor algemenere pauzering, zonder teveel code duplicatie
 fix centreer functies in draw.py om te centeren inclusief waardes van de variabelen
-hiscore op startscherm bijhouden
+hiscore op startscherm bijhouden, save beste X scores naar bestand?
 powerups (snellere scroll, meerdere kogels), levens, map omgeving
 gebruik sfx in mapje met willekeurig nummer via random.randint(1,3)
 parallax scrolling achtergrond
