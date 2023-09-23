@@ -1,0 +1,7 @@
+We kunnen ingebouwde vormen van pygame.draw op het scherm tekenen en/of afbeeldingen.
+
+Hangt een deel van de beoordeling af van graphics of maakt het niet uit?
+
+Zoek het definitieve pixel font hier: https://www.dafont.com/bitmap.php of andere site
+
+Voeg bronnen van de gebruikte graphics/font toe aan README.md
