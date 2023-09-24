@@ -4,6 +4,7 @@ import pygame as pg
 import window
 import draw
 import input
+import entity
 
 class Game():
     def __init__(self):
@@ -14,19 +15,24 @@ class Game():
         self.font_size = 16
         self.render_col = (0, 0, 0)
         self.screen_col = (45, 56, 58)
+        self.score = 0
+        self.hiscore = 0
+        self.time_offset = 0
+        self.time = 0
+        self.timer_too_long = 9999
 
 pg.init()
 w = window.Window()
 clock = pg.time.Clock()
 game = Game()
 font = pg.font.Font("gfx/alagard.ttf", game.font_size)
+# TODO: remove magic numbers
+player = entity.Entity(3, 300)
 
 def run():
     while w.running:
         if game.debug:
             pg.display.set_caption(f"{w.title} - {str(int(clock.get_fps()))} fps")
-
-        input.poll_keys()
 
         for event in pg.event.get():
             match event.type:
@@ -35,11 +41,16 @@ def run():
                 case pg.VIDEORESIZE:
                     window.scale_window(w)
                 case pg.KEYDOWN:
-                    input.handle_keyevents(event, w, game)
+                    input.handle_keyevents(event, w, game, player)
+
+        if game.state == GameState.GAME and not game.paused:
+            player.update(clock)
+            input.poll_keys(player)
 
         if game.paused:
             draw.pause(w, game, font)
         else:
-            draw.draw(w, game, font)
+            draw.draw(w, game, font, player)
+            
         clock.tick(game.fps)
     pg.quit()

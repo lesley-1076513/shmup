@@ -1,23 +1,27 @@
 import pygame as pg
 from state import GameState
 
-def draw(w, game, font):
+def draw(w, game, font, player):
     w.screen.fill(game.screen_col)
     w.render.fill(game.render_col)
     
     match game.state:
         case GameState.TITLE:
-            primary_text = "Hiscore: 0"
+            primary_text = f"Hiscore: {game.hiscore}"
             secondary_text = "Start (enter)"
             tertiary_text = "Quit (escape)"
         case GameState.GAME:
-            primary_text = "Lives: 0"
-            secondary_text = "Score: 0"
-            tertiary_text = "Time: 0"
+            primary_text = f"Lives: {player.lives}"
+            secondary_text = f"Score: {game.score}"
+            timer = int((pg.time.get_ticks() - game.time_offset) / 1000)
+            if timer > game.timer_too_long:
+                tertiary_text = "Too long"
+            else:
+                tertiary_text = f"Time: {timer}"
         case GameState.END:
             primary_text = "Game Over"
-            secondary_text = "Score: 0"
-            tertiary_text = "Time: 0"
+            secondary_text = f"Score: {game.score}"
+            tertiary_text = f"Time: {game.time}"
 
     text1 = font.render(primary_text, False, "yellow")
     text2 = font.render(secondary_text, False, "yellow")
@@ -29,7 +33,7 @@ def draw(w, game, font):
             w.render.blit(text2, center_width(w, game, secondary_text, 5))
             w.render.blit(text3, center_width(w, game, tertiary_text, 7))
         case GameState.GAME:
-            w.render.blit(text1, (1*game.font_size, 0))
+            w.render.blit(text1, (0, 0))
             w.render.blit(text2, center_width(w, game, secondary_text, 0))
             w.render.blit(text3, (15*game.font_size, 0))
 
