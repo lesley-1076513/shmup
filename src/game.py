@@ -12,8 +12,8 @@ class Game():
         self.state = GameState.TITLE
         self.fps = 60
         self.font_size = 16
-        self.render_col = (150, 150, 150)
-        self.screen_col = (100, 100, 100)
+        self.render_col = (0, 0, 0)
+        self.screen_col = (45, 56, 58)
 
 pg.init()
 w = window.Window()

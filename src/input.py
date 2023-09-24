@@ -15,6 +15,8 @@ def handle_keyevents(event, w, game):
                 w.running = False
             else:
                 game.state = GameState.TITLE
+        else:
+            game.paused = not game.paused
     if event.key == pg.K_RETURN and event.mod & pg.KMOD_ALT:
         window.toggle_fullscreen(w)
     if event.key == pg.K_RETURN and not event.mod & pg.KMOD_ALT:
@@ -22,13 +24,10 @@ def handle_keyevents(event, w, game):
             case GameState.TITLE:
                 game.state = GameState.GAME
             case GameState.GAME:
-                if game.paused:
-                    game.paused = False
-                else:
-                    game.paused = True
+                game.paused = not game.paused
             case GameState.END:
                 game.state = GameState.TITLE
     if event.key == pg.K_SPACE:
-        coin_sfx = pg.mixer.Sound(f"sfx/explosion{random.randint(1,3)}.wav")
-        coin_sfx.play()
+        shoot = pg.mixer.Sound(f"sfx/shoot{random.randint(1,3)}.wav")
+        shoot.play()
         

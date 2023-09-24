@@ -2,8 +2,8 @@ import pygame as pg
 from state import GameState
 
 def draw(w, game, font):
-    w.render.fill(game.render_col)
     w.screen.fill(game.screen_col)
+    w.render.fill(game.render_col)
     
     match game.state:
         case GameState.TITLE:
