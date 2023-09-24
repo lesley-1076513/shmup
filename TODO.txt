@@ -1,0 +1,6 @@
+maak 1.0 git tag op laatste commit als we klaar zijn
+check run.pyw op macos, test het met pythonw command, gebruik sys.platform als nodig is
+powerups (snellere scroll, multi kogels), levens, hiscore, map omgeving
+gebruik sfx in mapje met willekeurig nummer via random.randint(1,3)
+parallax scrolling achtergrond
+tijdgebaseerde scenarios
