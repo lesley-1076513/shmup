@@ -9,7 +9,7 @@ class Entity():
         self.atk_timer = 0
     def attack(self):
         # TODO: incomplete
-        attack_sfx = pg.mixer.Sound(f"sfx/shoot{random.randint(1,3)}.wav")
+        attack_sfx = pg.mixer.Sound(f"sfx/shoot{random.randint(1,6)}.wav")
         attack_sfx.play()
     def update(self, clock):
         if self.atk_delay:
