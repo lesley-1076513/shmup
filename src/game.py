@@ -26,8 +26,7 @@ w = window.Window()
 clock = pg.time.Clock()
 game = Game()
 font = pg.font.Font("gfx/alagard.ttf", game.font_size)
-# TODO: remove magic numbers
-player = entity.Entity(3, 300)
+player = entity.Entity("white", [0, w.render_height/2], (16, 16), 3, 60)
 
 def run():
     while w.running:
@@ -44,7 +43,7 @@ def run():
                     input.handle_keyevents(event, w, game, player)
 
         if game.state == GameState.GAME and not game.paused:
-            player.update(clock)
+            player.update(clock, w)
             input.poll_keys(player)
 
         if game.paused:
