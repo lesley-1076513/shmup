@@ -46,6 +46,7 @@ def draw(w, game, font, player):
     pg.display.flip()
 
 def pause(w, game, font):
+    w.screen.fill(game.screen_col)
     pause_text = "Paused"
     text = font.render(pause_text, False, "yellow")
     w.render.blit(text, center(w, game, pause_text))
