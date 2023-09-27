@@ -6,13 +6,13 @@ def poll_keys(player):
     keys = pg.key.get_pressed()
     mods = pg.key.get_mods()
     if keys[pg.K_UP]:
-        player.position[1] -= 1
+        player.position[1] -= player.speed
     if keys[pg.K_DOWN]:
-        player.position[1] += 1
+        player.position[1] += player.speed
     if keys[pg.K_LEFT]:
-        player.position[0] -= 1
+        player.position[0] -= player.speed
     if keys[pg.K_RIGHT]:
-        player.position[0] += 1
+        player.position[0] += player.speed
     if keys[pg.K_SPACE]:
         if not player.atk_delay:
             player.attack()

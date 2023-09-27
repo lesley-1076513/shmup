@@ -19,7 +19,10 @@ def draw(w, game, font, player):
             else:
                 tertiary_text = f"Time: {timer}"
 
-            pg.draw.rect(w.render, player.colour, (player.position, player.size))
+            player.draw(w)
+            for bullet in player.bullets:
+                bullet.draw(w)
+                
         case GameState.END:
             primary_text = "Game Over"
             secondary_text = f"Score: {game.score}"
