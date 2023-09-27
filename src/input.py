@@ -5,6 +5,14 @@ import window
 def poll_keys(player):
     keys = pg.key.get_pressed()
     mods = pg.key.get_mods()
+    if keys[pg.K_UP]:
+        player.position[1] -= 1
+    if keys[pg.K_DOWN]:
+        player.position[1] += 1
+    if keys[pg.K_LEFT]:
+        player.position[0] -= 1
+    if keys[pg.K_RIGHT]:
+        player.position[0] += 1
     if keys[pg.K_SPACE]:
         if not player.atk_delay:
             player.attack()
@@ -17,6 +25,7 @@ def handle_keyevents(event, w, game, player):
                 w.running = False
             else:
                 game.state = GameState.TITLE
+                # TODO: reset game here
         else:
             game.paused = not game.paused
             game.time_offset = pg.time.get_ticks() - game.time_offset

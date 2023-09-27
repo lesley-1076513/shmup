@@ -18,6 +18,8 @@ def draw(w, game, font, player):
                 tertiary_text = "Too long"
             else:
                 tertiary_text = f"Time: {timer}"
+
+            pg.draw.rect(w.render, player.colour, (player.position, player.size))
         case GameState.END:
             primary_text = "Game Over"
             secondary_text = f"Score: {game.score}"

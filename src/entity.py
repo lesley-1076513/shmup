@@ -2,13 +2,17 @@ import pygame as pg
 import random
 
 class Entity():
-    def __init__(self, lives, atk_speed):
+    def __init__(self, col, pos, size, lives, atk_speed):
+        self.colour = col
+        self.position = pos
+        self.size = size
+        self.surface = pg.Surface(self.size)
+        self.rect = self.surface.get_rect()
         self.lives = lives
         self.atk_delay = False
         self.atk_speed = atk_speed
         self.atk_timer = 0
     def attack(self):
-        # TODO: incomplete
         attack_sfx = pg.mixer.Sound(f"sfx/shoot{random.randint(1,6)}.wav")
         attack_sfx.play()
     def update(self, clock):
