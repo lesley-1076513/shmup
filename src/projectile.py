@@ -10,7 +10,7 @@ class Projectile():
         self.surface = pg.Surface(self.size)
         self.rect = self.surface.get_rect()
     def update(self):
-        self.position[0] -= self.speed            
+        self.position[0] += self.speed
     def draw(self, w):
         pg.draw.rect(w.render, self.colour, (self.position, self.size))
 

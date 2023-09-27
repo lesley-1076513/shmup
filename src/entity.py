@@ -24,7 +24,7 @@ class Entity():
             attack_sfx.play()
     def update(self, clock, w):
         for bullet in self.bullets:
-            bullet.position[0] += bullet.speed
+            bullet.update()
             if bullet.position[0] > w.render_width:
                 self.bullets.pop(self.bullets.index(bullet))
                 
